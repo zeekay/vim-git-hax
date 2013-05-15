@@ -3,19 +3,9 @@ if exists('g:loaded_git_hax') || &cp
 endif
 let g:loaded_git_hax = 1
 
-func! s:Gitv(bang, ...)
-    if a:bang == '!'
-        let bang = ''
-    else
-        let bang = '!'
-    endif
-
-    exe 'Gitv'.bang.' '.join(a:000)
-endf
-
 augroup fugitive_patch
     autocmd!
-    autocmd User Fugitive command! -buffer -nargs=* -bang Glog call s:Gitv('<bang>', <f-args>)
+    autocmd User Fugitive command! -buffer -nargs=* -bang Glog call git_hax#gitv_wrapper('<bang>', <f-args>)
 augroup END
 
 let g:Gitv_WipeAllOnClose = 1
