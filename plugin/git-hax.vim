@@ -12,15 +12,6 @@ augroup git_hax
     autocmd User Fugitive command! -buffer -nargs=* -bang Glog call git_hax#gitv_wrapper('<bang>', <f-args>)
 augroup END
 
-" Gitv {{{
-    let g:Gitv_WipeAllOnClose = 1
-    let g:Gitv_OpenPreviewOnLaunch = 1
-    let g:Gitv_DoNotMapCtrlKey = 1
-" }}}
-
-" Mappings {{{
-    nnoremap <leader>gl :Glog --all<cr>
-    vnoremap <leader>gl :Glog --all<cr>
-    nnoremap <leader>gL :Glog! --all<cr>
-" }}}
-
+nnoremap <leader>gl :Glog --all<cr>
+vnoremap <leader>gl :Glog --all<cr>
+nnoremap <leader>gL :Glog! --all<cr>
