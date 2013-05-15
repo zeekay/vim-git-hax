@@ -4,7 +4,13 @@ endif
 let g:loaded_git_hax = 1
 
 func! s:Glog(bang, ...)
-    exe 'Gitv'.a:bang.' '.join(a:000)
+    if a:bang == '!'
+        let bang = ''
+    else
+        let bang = '!'
+    endif
+
+    exe 'Gitv'.bang.' '.join(a:000)
 endf
 
 augroup fugitive_patch
