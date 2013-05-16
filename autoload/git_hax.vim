@@ -1,12 +1,12 @@
 " wraps gitv command and reverses bang
-func! git_hax#gitv_wrapper(bang, ...)
+func! git_hax#gitv_wrapper(bang, line1, line2, ...)
     if a:bang == '!'
         let bang = ''
     else
         let bang = '!'
     endif
 
-    exe 'Gitv'.bang.' '.join(a:000)
+    exe a:line1.','.a:line2.'Gitv'.bang.' '.join(a:000)
 endf
 
 " This hack ensures I don't automatically commit a merge
